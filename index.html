@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1><i class="fas fa-hotel"></i> ဟိုတယ်ဘွတ်ကင်</h1>
+            <nav>
+                <button id="showRoomsBtn" class="active"><i class="fas fa-bed"></i> အခန်းများ</button>
+                <button id="showBookingFormBtn"><i class="fas fa-calendar-alt"></i> ဘွတ်ကင်လုပ်ရန်</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="roomsSection" class="active">
+                <div class="search-form">
+                    <label for="checkInDate">ဝင်ရောက်မည့်နေ့:</label>
+                    <input type="date" id="checkInDate" required>
+                    <label for="checkOutDate">ထွက်ခွာမည့်နေ့:</label>
+                    <input type="date" id="checkOutDate" required>
+                    <button id="searchRoomsBtn"><i class="fas fa-search"></i> ရှာဖွေမည်</button>
+                </div>
+                <div id="roomList" class="room-list">
+                    <!-- Rooms will be loaded here by JavaScript -->
+                </div>
+            </section>
+
+            <section id="bookingFormSection" class="hidden">
+                <h2>အခန်းဘွတ်ကင်ပြုလုပ်ရန်</h2>
+                <form id="bookingForm">
+                    <input type="hidden" id="selectedRoomId">
+                    <input type="hidden" id="selectedRoomPrice">
+                    <div class="form-group">
+                        <label for="guestName">အမည်:</label>
+                        <input type="text" id="guestName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestPhone">ဖုန်းနံပါတ်:</label>
+                        <input type="tel" id="guestPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestEmail">အီးမေးလ်:</label>
+                        <input type="email" id="guestEmail">
+                    </div>
+                    <div class="form-group">
+                        <label>ရွေးချယ်ထားသောအခန်း:</label>
+                        <span id="displaySelectedRoom">အခန်းရွေးချယ်ထားခြင်းမရှိသေးပါ</span>
+                    </div>
+                    <div class="form-group">
+                        <label>ရက်စွဲများ:</label>
+                        <span id="displayDates"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>စုစုပေါင်းကျသင့်ငွေ:</label>
+                        <span id="displayTotalPrice">0 Ks</span>
+                    </div>
+                    <button type="submit" class="cta-button"><i class="fas fa-check-circle"></i> ဘွတ်ကင်အတည်ပြုမည်</button>
+                </form>
+            </section>
+
+            <div id="loading" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <span>Loading...</span>
+            </div>
+            <div id="message" class="message-box hidden"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+<footer><p style="text-align: center;">Copyright &copy; 2025 - 2026. All Rights Reserved. <span style="color: #ff0000;">Powered by MMITSG</span>.</p> </footer>
+</html>
